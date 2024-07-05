@@ -1,0 +1,125 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.assessment-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+.assessment-header h2 {
+    margin: 0 0 20px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+}
+
+.progress-bar {
+    background: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 12px;
+    margin-bottom: 30px;
+}
+
+.progress-bar .progress {
+    background: #76c7c0;
+    height: 100%;
+    width: 0;
+    transition: width 0.3s ease;
+}
+
+.assessment-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.question {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+    border-color: #76c7c0;
+    outline: none;
+}
+
+button {
+    background: #76c7c0;
+    color: #fff;
+    border: none;
+    padding: 14px 28px;
+    margin: 10px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    font-size: 16px;
+    min-width: 150px; /* Ensure uniform button width */
+}
+
+button:hover {
+    background: #64b3ad;
+    transform: translateY(-2px);
+}
+
+.previous-button {
+    background: #ff6f61;
+}
+
+.previous-button:hover {
+    background: #e65b50;
+}
+
+button[type="submit"] {
+    background: #4CAF50;
+}
+
+button[type="submit"]:hover {
+    background: #45a049;
+}
+
+@media (max-width: 600px) {
+    .assessment-container {
+        padding: 30px;
+    }
+
+    button {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea {
+        font-size: 14px;
+    }
+}

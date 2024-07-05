@@ -1,0 +1,15 @@
+{
+    "error": "Error code: 400 - {'error': {'message': \"'messages.0' : value must be an object with the discriminator property: 'role'\", 'type': 'invalid_request_error'}}",
+    "answers": {
+        "question1": "18-24",
+        "question2": "Female",
+        "question3": "Rarely",
+        "question4": "Rarely",
+        "question5": "Rarely",
+        "question6": "Satisfied",
+        "question7": "Rarely",
+        "question8": "No",
+        "question9": "No",
+        "question10": "No"
+    }
+}

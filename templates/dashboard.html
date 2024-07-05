@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindguard Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+    <div class="top-nav">
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="logo">Mindely</div>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">Mindely</div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('player') }}"><i class="fas fa-music"></i> Melody Flow</a></li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i> Reports & Analysis</a></li>
+                    <li><a href="#"><i class="fas fa-heart"></i> Wellness Plans</a></li>
+                    <li><a href="#"><i class="fas fa-bell"></i> Reminder Alerts</a></li>
+                    <li><a href="#"><i class="fas fa-chart-bar"></i> Track Progress</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                    <li><a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i> Sign Out</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <main class="main-content">
+            <header>
+                <div class="user-profile">
+                    <img id="user-avatar" alt="User Avatar" src="{{ url_for('static', filename='images/default-avatar.png') }}">
+                    <div class="user-info" id="user-info">
+                        <h2>User Profile</h2>
+                        <p id="name"><b><strong>Name:</strong> </b> {{ user.name }}</p>
+                        <p id="phone"><b><strong>Phone:</strong> </b>{{ user.phone }}</p>
+                        <p id="gender"><strong>Gender:</strong> {{ user.gender }}</p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- New section for user assessments -->
+            <section class="card user-assessments">
+                <h3>User Assessments</h3>
+                <table class="table table-striped table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Assessment ID</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="assessments-body">
+                        {% for assessment in assessments %}
+                        <tr>
+                            <td>{{ assessment.id }}</td>
+                            <td>{{ assessment.score }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="card weekly-progress" id="insights">
+                <h3>Weekly Progress</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Day of Week</th>
+                            <th>Weight</th>
+                            <th>Nutrition</th>
+                            <th>Hydration</th>
+                            <th>Mindfulness</th>
+                            <th>Physical</th>
+                            <th>Calories</th>
+                            <th>Mood</th>
+                        </tr>
+                    </thead>
+                    <tbody id="weekly-progress-body">
+                        <!-- Data will be dynamically inserted here -->
+                    </tbody>
+                </table>
+            </section>
+            <section class="card mental-wellbeing">
+                <h3>Your mental well-being</h3>
+                <div class="mental-stats">
+                    <p>Current: <span id="current-mental">N/A</span></p>
+                    <p>Desired: <span id="desired-mental">N/A</span></p>
+                </div>
+                <div class="mental-chart">
+                    <canvas id="mentalChart"></canvas>
+                </div>
+            </section>
+            <section class="card activity-summary" id="reports-analysis">
+                <h3>Activity Summary</h3>
+                <p>Stress Level: <span id="stress-level">N/A</span></p>
+                <p>Anxiety Level: <span id="anxiety-level">N/A</span></p>
+                <p>Sadness Level: <span id="sadness-level">N/A</span></p>
+                <p>Life Satisfaction: <span id="life-satisfaction">N/A</span></p>
+                <p>Sleep Quality: <span id="sleep-quality">N/A</span></p>
+                <p>Support Network: <span id="support-network">N/A</span></p>
+                <p>Physical Activity: <span id="physical-activity">N/A</span></p>
+                <p>Hobbies: <span id="hobbies">N/A</span></p>
+            </section>
+            <section class="card exercise-routines" id="wellness-plans">
+                <h3>Exercise Routines</h3>
+                <!-- Exercise routines will be dynamically inserted here -->
+            </section>
+            <section class="card" id="reminder-alerts">
+                <h3>Reminder Alerts</h3>
+                <!-- Reminder alerts will be dynamically inserted here -->
+            </section>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='java_script/dashboard.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="player">
+    <h2>Featured Playlist: Chill Vibes</h2>
+    <div class="track-info">
+        <img id="albumArt" src="{{ url_for('static', filename=album_cover) }}" alt="Album Art" class="album-art">
+        <div class="track-details">
+            <div id="trackTitle" class="track-title">{{ song_name }}</div>
+            <div id="trackArtist" class="track-artist">{{ artist_name }}</div>
+        </div>
+    </div>
+</div>
+<div class="player-controls-bar">
+    <div class="control-center">
+        <button id="previousButton" class="control-button" aria-label="Previous Track">⟲</button>
+        <button id="playButton" class="control-button" aria-label="Play">▶</button>
+        <button id="pauseButton" class="control-button" aria-label="Pause" style="display: none;">⏸️</button>
+        <button id="nextButton" class="control-button" aria-label="Next Track">⟳</button>
+    </div>
+    <div class="control-right">
+        <span id="currentTime" aria-label="Current Time">0:00</span>
+        <input type="range" id="seekBar" value="0" class="seek-bar" aria-label="Seek Bar">
+        <span id="duration" aria-label="Duration">4:00</span>
+        <button id="repeatButton" class="control-button" aria-label="Repeat">∞</button>
+        <button id="volumeButton" class="control-button" aria-label="Volume">🔊</button>
+        <input type="range" id="volumeControl" class="volume-control" aria-label="Volume Control">
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='java_script/melody.js') }}"></script>
+{% endblock %}
+

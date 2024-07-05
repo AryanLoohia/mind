@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Landing Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+<header>
+    <div class="logo">Mindely</div>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="{{ url_for('assessment') }}" id="assessment">Assess</a></li>
+            <li><a href="#">Chat</a></li>
+            <li><a href="#">Appointments</a></li>
+        </ul>
+    </nav>
+    <div class="search-bar">
+        <input type="text" placeholder="Search">
+    </div>
+    <a href="{{ url_for('login') }}" id="loginLink">
+        <button class="login-button">Login</button>
+    </a>
+    <img id="loggedInImage" src="{{ url_for('static', filename='logged_in_image.png') }}" alt="Logged In" style="display: none;">
+    <div class="hamburger" onclick="toggleMenu()">
+        ☰
+    </div>
+</header>
+<div class="menu" id="menu">
+    <div class="menu-close" onclick="toggleMenu()">
+        &times;
+    </div>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="{{ url_for('assessment') }}" id="assessment">Assess</a></li>
+        <li><a href="#">Chat</a></li>
+        <li><a href="#">Appointments</a></li>
+        <li>
+            <div class="search-bar">
+                <input type="text" placeholder="Search">
+            </div>
+        </li>
+        <li>
+            <a href="{{ url_for('login') }}" id="loginLink">
+                <button class="login-button">Login</button>
+            </a>
+        </li>
+    </ul>
+</div>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+
+
+<section class="hero">
+    <div class="hero-text">
+        <h1><strong>Every Mind Matters</strong></h1>
+        <p>Trusted by psychiatrists</p>
+        <a href= "{{ url_for('assessment') }}" id="assessment">
+          <button class="search-button">Take your assessment</button>
+        </a>
+    </div>
+    <div class="hero-image">
+        <img src="{{ url_for('static', filename='hero-image.png') }}" alt="Wellness Image" width="1000" height="400">
+    </div>
+</section>
+
+<section class="search-section">
+    <div class="search-option">
+        <span>Analysis</span>
+        <span>Self-care</span>
+    </div>
+    <div class="search-option">
+        <span>Feelings</span>
+        <span>01/09/2023 - 10/09/2023</span>
+    </div>
+    <div class="search-option">
+        <span>Support</span>
+        <span>Online help</span>
+    </div>
+    <button class="search-button">Search</button>
+</section>
+
+<section class="prevention-methods">
+    <h2>Prevention methods</h2>
+    <div class="methods">
+        <div class="method">Meditation Break</div>
+        <div class="method">Nature Escape</div>
+        <div class="method">Relaxation Retreats</div>
+        <div class="method">Cruises</div>
+        <div class="method">Calmness Boost</div>
+        <div class="method">Hills</div>
+    </div>
+</section>
+
+<section class="features-container">
+    <div class="feature">
+        <img src="{{ url_for('static', filename='images/path-to-image-1.png') }}" alt="Personalized Guidance On the Go">
+        <div>
+            <h2>Personalized Guidance On the Go</h2>
+            <p>Harness the power of data-driven mental health: AI anticipates your needs, offering insights and notifications to steer your daily choices towards better mental well-being.</p>
+        </div>
+    </div>
+    <div class="feature">
+        <img src="{{ url_for('static', filename='images/path-to-image-2.png') }}" alt="Personalized AI Psychiatrist Mandy " >
+        <div>
+            <h2>Personalized AI Psychiatrist Mandy</h2>
+            <p>Meet Dr.Mandy, your personalized AI psychiatrist available anytime, anywhere. Get tailored mental health support and guidance as per your needs.</p>
+        </div>
+    </div>
+    <div class="feature">
+        <img src="{{ url_for('static', filename='images/path-to-image-3.png') }}" alt="AI-Driven Mental Health Assessment">
+        <div>
+            <h2>AI-Driven Mental Health Assessment</h2>
+            <p>Unlock a wealth of mental health information with detailed assessment tests. Detect potential mental health issues using AI and machine learning, verified by professional psychiatrists.</p>
+        </div>
+    </div>
+    <div class="feature">
+        <img src="{{ url_for('static', filename='images/path-to-image-4.jpg') }}" alt="AI-Driven Mental Health Assessment">
+        <div>
+            <h2>MindGuard: Social Media Guard</h2>
+            <p>MindGuard AI's Social Media Guard tracks and supports mental health by combining offline tests with social media monitoring, ensuring timely help and accurate insights.
+            </p>
+        </div>
+    </div>
+</section>
+
+<div id="video-container">
+    <video autoplay muted loop playsinline>
+        <source src="{{ url_for('static', filename='videos/mental-health.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<section class="mindful-moments">
+    <h2>Mindful Moments</h2>
+    <p>10 sessions for Rs-999 /session</p>
+    <button>Explore now</button>
+</section>
+
+<div class="review-section">
+    <button id="left-arrow" class="arrow left-arrow">&lt;</button>
+    <div id="reviews-container" class="reviews-container">
+        <div class="review-card">
+            <img src="https://via.placeholder.com/200" alt="Review 1">
+            <h3>John Doe</h3>
+            <p class="rating">★★★★★</p>
+            <p class="review-date">Reviewed on 15th Mar 2024</p>
+            <p class="review-text">I've struggled with anxiety for years. The professional help and support I received from this company have been life-changing...</p>
+        </div>
+        <div class="review-card">
+            <img src="https://via.placeholder.com/200" alt="Review 2">
+            <h3>Jane Smith</h3>
+            <p class="rating">★★★★★</p>
+            <p class="review-date">Reviewed on 22nd Feb 2024</p>
+            <p class="review-text">Their therapy sessions helped me cope with my depression. The counselors are compassionate and skilled...</p>
+        </div>
+        <div class="review-card">
+            <img src="https://via.placeholder.com/200" alt="Review 3">
+            <h3>Michael Brown</h3>
+            <p class="rating">★★★★☆</p>
+            <p class="review-date">Reviewed on 10th Jan 2024</p>
+            <p class="review-text">The mindfulness and stress reduction techniques I learned have greatly improved my quality of life...</p>
+        </div>
+        <div class="review-card">
+            <img src="https://via.placeholder.com/200" alt="Review 4">
+            <h3>Emily Davis</h3>
+            <p class="rating">★★★★★</p>
+            <p class="review-date">Reviewed on 5th Dec 2023</p>
+            <p class="review-text">Thanks to the therapy I received, I can now manage my stress and live a healthier life...</p>
+        </div>
+        <div class="review-card">
+            <img src="https://via.placeholder.com/200" alt="Review 5">
+            <h3>David Wilson</h3>
+            <p class="rating">★★★★★</p>
+            <p class="review-date">Reviewed on 18th Nov 2023</p>
+            <p class="review-text">The support groups and resources provided by this company have been incredibly helpful for my recovery...</p>
+        </div>
+        <div class="review-card">
+            <img src="https://via.placeholder.com/200" alt="Review 6">
+            <h3>Susan Taylor</h3>
+            <p class="rating">★★★★☆</p>
+            <p class="review-date">Reviewed on 25th Oct 2023</p>
+            <p class="review-text">Their online therapy sessions are convenient and effective, making it easier for me to get the help I need...</p>
+        </div>
+    </div>
+    <button id="right-arrow" class="arrow right-arrow">&gt;</button>
+</div>
+
+<section class="top-picks">
+    <h2>Top picks this week</h2>
+    <div class="picks">
+        <div class="pick">
+            <img src="{{ url_for('static', filename='images/goa.png') }}" alt="Greenland">
+            <p>Palolem Beach</p>
+            <p>Goa</p>
+        </div>
+        <div class="pick">
+            <img src="{{ url_for('static', filename='images/kasauli.png') }}" alt="Maldives">
+            <p>Kasauli</p>
+            <p>Chandigarh</p>
+        </div>
+        <div class="pick">
+            <img src="{{ url_for('static', filename='images/keral.png') }}" alt="Fiji Islands">
+            <p>Laccadive Sea</p>
+            <p>Keral</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-section">
+        <h3>Mindely:Me</h3>
+        <p>Supporting Mental Health since</p>
+    </div>
+    <div class="footer-section">
+        <h3>Community Support</h3>
+        <ul>
+            <li><a href="#">Learn More</a></li>
+            <li><a href="#">Opportunities</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Online Journal</a></li>
+        </ul>
+    </div>
+    <div class="footer-section">
+        <h3>Resources</h3>
+        <ul>
+            <li><a href="#">Support Center</a></li>
+            <li><a href="#">Upgrade Account</a></li>
+        </ul>
+    </div>
+    <div class="footer-section">
+        <h3>Connect with Us</h3>
+        <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Inspiration</a></li>
+        </ul>
+    </div>
+</footer>
+
+<script src="{{ url_for('static', filename='java_script/index.js') }}"></script>
+</body>
+</html>

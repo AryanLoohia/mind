@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="20;url={{ url_for('dashboard') }}">
+    <title>Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="message-container">
+            <h1>Results</h1>
+            {% if score == 0 %}
+                <p> 😞 There was an error processing your assessment. Please try again later.</p>
+                <a href="{{ url_for('assessment') }}">Take the assessment again</a>
+            {% else %}
+                <p class="score">Your mental health score is: {{ score }}</p>
+                <p class="summary">Summary: {{ summary }}</p>
+
+                {% if score <= 3 %}
+                    <p>Your score indicates a significant level of distress and symptoms related to mental health issues. It is highly recommended for you to seek professional help and support to address these concerns.</p>
+                {% elif score <= 7 %}
+                    <p>Your score indicates some level of distress and symptoms related to mental health issues. It may be beneficial for you to seek professional help and support to address these concerns.</p>
+                {% else %}
+                    <p>Your score indicates a relatively low level of distress and symptoms related to mental health issues. However, it's always important to prioritize your mental well-being, and seeking professional help if needed is encouraged.</p>
+                {% endif %}
+                <a href="{{ url_for('assessment') }}">Take the assessment again</a>
+            {% endif %}
+            
+            <div class="countdown-container">
+                <div class="progress-circle" id="progressCircle"></div>
+                <div class="countdown" id="countdown">20</div>
+                <div class="message" id="message" style="display: none;">Redirecting to Dashboard</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='java_script/countdown.js') }}"></script>
+</body>
+</html>

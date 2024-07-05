@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MelodyFlow</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/melody.css') }}">
+</head>
+<body>
+    <div class="sidebar" id="sidebar" role="navigation" aria-label="Main Navigation">
+        <a href="/">Home</a>
+        <a href="/search">Search</a>
+        <a href="/favorites">Favorites</a>
+        {% if 'user_id' in session %}
+            <a href="/logout">Logout</a>
+            <a href="/dashboard">Dashboard</a>
+        {% else %}
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        {% endif %}
+    </div>
+    <div class="main-content">
+        <header>
+            <button id="menuButton" class="hamburger" aria-label="Menu">
+                <div></div>
+                <div></div>
+                <div></div>
+            </button>
+            <h1>MelodyFlow</h1>
+            <input type="text" placeholder="Search music, artists or genres" aria-label="Search">
+        </header>
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='java_script/melody.js') }}"></script>
+</body>
+</html>
+

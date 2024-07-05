@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.parent-container {
+    position: relative;
+    min-height: 100vh; /* Ensure the parent container takes the full height of the viewport */
+    padding-bottom: 100px; /* Space for the countdown timer */
+}
+
+.countdown-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 20px; /* Adjust this value to control the distance from the bottom */
+}
+
+.progress-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 10px solid #e0e0e0;
+    position: relative;
+    margin-bottom: 20px;
+    background: conic-gradient(#00ff00 0%, #e0e0e0 0%);
+}
+
+.progress-circle::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: white;
+    transform: translate(-50%, -50%);
+}
+
+.countdown {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.message {
+    font-size: 1.2em;
+    color: #666;
+}

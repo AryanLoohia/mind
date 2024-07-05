@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Assessment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/assessment.css') }}">
+</head>
+<body>
+    <div class="assessment-container">
+        <div class="assessment-header">
+            <h2>Mental Health Assessment</h2>
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+        </div>
+        <div class="assessment-content">
+            <form action="/assessment" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <div class="question" data-step="0">
+                <p>Please provide your details:</p>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <br>
+                <label for="userphone">Phone Number:</label>
+                <input type="text" id="phone" name="phone" required>
+                <br>
+                <label for="gender">Gender:</label>
+                <input type="text" id="gender" name="gender">
+                <br>
+                <button type="button" class="next-button" data-next-step="1">Next</button>
+            </div>
+                <div class="question" data-step="1">
+                    <p>What is your age? 🎂</p>
+                    <button type="button" class="option" data-value="Under 18" data-name="question1">Under 18</button>
+                    <button type="button" class="option" data-value="18-24" data-name="question1">18-24</button>
+                    <button type="button" class="option" data-value="25-34" data-name="question1">25-34</button>
+                    <button type="button" class="option" data-value="35-44" data-name="question1">35-44</button>
+                    <button type="button" class="option" data-value="45-54" data-name="question1">45-54</button>
+                    <button type="button" class="option" data-value="55+" data-name="question1">55+</button>
+                </div>
+                <div class="question" data-step="2" style="display: none;">
+                    <p>What is your gender? 👤</p>
+                    <button type="button" class="option" data-value="Male" data-name="question2">Male</button>
+                    <button type="button" class="option" data-value="Female" data-name="question2">Female</button>
+                    <button type="button" class="option" data-value="Non-binary" data-name="question2">Non-binary</button>
+                    <button type="button" class="option" data-value="Prefer not to say" data-name="question2">Prefer not to say</button>
+                    <button type="button" class="previous-button" data-previous-step="1">Previous</button>
+                </div>
+                <div class="question" data-step="3" style="display: none;">
+                    <p>How often do you feel stressed? 😟</p>
+                    <button type="button" class="option" data-value="Never" data-name="question3">Never</button>
+                    <button type="button" class="option" data-value="Rarely" data-name="question3">Rarely</button>
+                    <button type="button" class="option" data-value="Sometimes" data-name="question3">Sometimes</button>
+                    <button type="button" class="option" data-value="Often" data-name="question3">Often</button>
+                    <button type="button" class="option" data-value="Always" data-name="question3">Always</button>
+                    <button type="button" class="previous-button" data-previous-step="2">Previous</button>
+                </div>
+                <div class="question" data-step="4" style="display: none;">
+                    <p>How often do you feel anxious? 😰</p>
+                    <button type="button" class="option" data-value="Never" data-name="question4">Never</button>
+                    <button type="button" class="option" data-value="Rarely" data-name="question4">Rarely</button>
+                    <button type="button" class="option" data-value="Sometimes" data-name="question4">Sometimes</button>
+                    <button type="button" class="option" data-value="Often" data-name="question4">Often</button>
+                    <button type="button" class="option" data-value="Always" data-name="question4">Always</button>
+                    <button type="button" class="previous-button" data-previous-step="3">Previous</button>
+                </div>
+                <div class="question" data-step="5" style="display: none;">
+                    <p>How often do you feel depressed? 😞</p>
+                    <button type="button" class="option" data-value="Never" data-name="question5">Never</button>
+                    <button type="button" class="option" data-value="Rarely" data-name="question5">Rarely</button>
+                    <button type="button" class="option" data-value="Sometimes" data-name="question5">Sometimes</button>
+                    <button type="button" class="option" data-value="Often" data-name="question5">Often</button>
+                    <button type="button" class="option" data-value="Always" data-name="question5">Always</button>
+                    <button type="button" class="previous-button" data-previous-step="4">Previous</button>
+                </div>
+                <div class="question" data-step="6" style="display: none;">
+                    <p>How satisfied are you with your life? 😊</p>
+                    <button type="button" class="option" data-value="Very satisfied" data-name="question6">Very satisfied</button>
+                    <button type="button" class="option" data-value="Satisfied" data-name="question6">Satisfied</button>
+                    <button type="button" class="option" data-value="Neutral" data-name="question6">Neutral</button>
+                    <button type="button" class="option" data-value="Dissatisfied" data-name="question6">Dissatisfied</button>
+                    <button type="button" class="option" data-value="Very dissatisfied" data-name="question6">Very dissatisfied</button>
+                    <button type="button" class="previous-button" data-previous-step="5">Previous</button>
+                </div>
+                <div class="question" data-step="7" style="display: none;">
+                    <p>How often do you have trouble sleeping? 🛏️</p>
+                    <button type="button" class="option" data-value="Never" data-name="question7">Never</button>
+                    <button type="button" class="option" data-value="Rarely" data-name="question7">Rarely</button>
+                    <button type="button" class="option" data-value="Sometimes" data-name="question7">Sometimes</button>
+                    <button type="button" class="option" data-value="Often" data-name="question7">Often</button>
+                    <button type="button" class="option" data-value="Always" data-name="question7">Always</button>
+                    <button type="button" class="previous-button" data-previous-step="6">Previous</button>
+                </div>
+                <div class="question" data-step="8" style="display: none;">
+                    <p>Do you have a strong support network? 🤝</p>
+                    <button type="button" class="option" data-value="Yes" data-name="question8">Yes</button>
+                    <button type="button" class="option" data-value="No" data-name="question8">No</button>
+                    <button type="button" class="option" data-value="Unsure" data-name="question8">Unsure</button>
+                    <button type="button" class="previous-button" data-previous-step="7">Previous</button>
+                </div>
+                <div class="question" data-step="9" style="display: none;">
+                    <p>Do you find it easy to talk about your feelings? 🗣️</p>
+                    <button type="button" class="option" data-value="Yes" data-name="question9">Yes</button>
+                    <button type="button" class="option" data-value="No" data-name="question9">No</button>
+                    <button type="button" class="option" data-value="Sometimes" data-name="question9">Sometimes</button>
+                    <button type="button" class="previous-button" data-previous-step="8">Previous</button>
+                </div>
+                <div class="question" data-step="10" style="display: none;">
+                    <p>Do you engage in activities that you enjoy? 🎨</p>
+                    <button type="button" class="option" data-value="Yes" data-name="question10">Yes</button>
+                    <button type="button" class="option" data-value="No" data-name="question10">No</button>
+                    <button type="button" class="option" data-value="Sometimes" data-name="question10">Sometimes</button>
+                    <button type="button" class="previous-button" data-previous-step="9">Previous</button>
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='java_script/assessment.js') }}"></script>
+</body>
+</html>

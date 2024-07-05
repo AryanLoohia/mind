@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="search">
+    <h2>Recent searches</h2>
+    <div class="recent-searches">
+        <div onclick="location.href='/player'">Melody</div>
+        <div onclick="location.href='/player'">Harmony</div>
+        <div onclick="location.href='/player'">Sunset Serenade</div>
+        <div onclick="location.href='/player'">Relaxation Time</div>
+    </div>
+    <h2>Based on what you like</h2>
+    <div class="based-on-likes">
+        <div onclick="location.href='/player'">Melody Mix</div>
+        <div onclick="location.href='/player'">Harmony</div>
+        <div onclick="location.href='/player'">Rhythm Mix</div>
+        <div onclick="location.href='/player'">Serenity Mix</div>
+    </div>
+</div>
+{% endblock %}

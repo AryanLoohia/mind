@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login_register_styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="image-section">
+            <img id="dynamic-image" src="{{ url_for('static', filename='image.png') }}" 
+                 data-image1="{{ url_for('static', filename='image.png') }}" 
+                 data-image2="{{ url_for('static', filename='image2.png') }}" 
+                 alt="Image Description">
+        </div>
+        <div class="form-section">
+            <div class="form-container">
+                <h1>Welcome Back To</h1>
+                <h2>Mindely</h2>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <ul>
+                            {% for category, message in messages %}
+                                <li class="{{ category }}">{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+                <form method="post" action="{{ url_for('login') }}">
+                    {{ form.hidden_tag() }}
+                    <div class="input-container">
+                        {{ form.username.label }}
+                        {{ form.username }}
+                    </div>
+                    <div class="input-container">
+                        {{ form.password.label }}
+                        {{ form.password }}
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+                <p>Do not have an account? <a href="{{ url_for('register') }}">Register here</a>.</p>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='java_script/image_switcher.js') }}"></script>
+</body>
+</html>
